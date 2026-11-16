@@ -30,6 +30,32 @@ O fluxo foi estruturado seguindo o processo ETL (Extract, Transform, Load).
 | Load | Carga dos dados no Data Warehouse | Google BigQuery |
 | Analytics | Consultas analíticas e visualização dos indicadores | SQL, Looker Studio |
 
+A seguir, são apresentadas algumas etapas do desenvolvimento do projeto, demonstrando a implementação do pipeline ETL e as consultas analíticas realizadas no BigQuery.<br>
+
+**1. Configuração do ambiente e conexão com PostgreSQL**
+
+> Instalação das dependências, importação das bibliotecas Python e carregamento das variáveis de conexão por meio do arquivo `.env`.
+
+![Configuração da extração](Docs/img/a2.jpeg)
+
+**2. Organização e validação dos dados extraídos**
+
+> Atribuição das tabelas extraídas aos respectivos DataFrames e geração de um resumo da extração, apresentando a quantidade de registros e colunas de cada tabela.
+
+![Organização dos dados extraídos](Docs/img/a3.jpeg)
+
+**3. Transformação e tratamento dos dados**
+
+> Definição dos diretórios de origem e destino, carregamento dos arquivos CSV brutos e preparação dos dados para aplicação das etapas de limpeza, padronização e tratamento de inconsistências.
+
+![Transformação dos dados](Docs/img/a4.jpeg)
+
+**4. Load — Carregamento dos dados no BigQuery**
+
+> Implementação de uma carga automatizada dos arquivos CSV tratados para o Google BigQuery, utilizando a biblioteca `google-cloud-bigquery`. O processo percorre os arquivos do diretório, identifica dinamicamente o nome de cada tabela e realiza o carregamento na camada **Staging**. Após cada operação, aguarda a conclusão do job e registra informações sobre a tabela, quantidade de registros carregados e status da execução, permitindo acompanhar e validar o processo de carga.
+
+![Carga dos dados no BigQuery](Docs/img/a5.jpeg)
+
 ## 🛠️ Tecnologias utilizadas
 
 - **Python:** desenvolvimento do pipeline ETL.
@@ -46,17 +72,21 @@ O fluxo foi estruturado seguindo o processo ETL (Extract, Transform, Load).
 
 No BigQuery, os dados foram organizados em datasets com responsabilidades distintas:
 
-**1. Automotive Staging**
+> Desenvolvimento e execução de consultas SQL no Google BigQuery, utilizando Views analíticas para consolidar os indicadores do funil de vendas e calcular as taxas de conversão entre as etapas da jornada de compra. Os resultados foram validados diretamente no ambiente do BigQuery e disponibilizados para consumo no **Looker Studio**, cuja integração nativa com o BigQuery facilita a conexão às Views, permitindo transformar os dados em dashboards interativos e atualizados para análise do negócio.
 
-Camada de chegada dos dados tratados, organizados em tabelas para disponibilização e validação.
+![Consultas analíticas no BigQuery](Docs/img/06.jpeg)
 
-**2. Automotive Marts**
+- **1. Automotive Staging**
 
-Camada destinada à organização dos dados para análises de negócio.
+  Camada de chegada dos dados tratados, organizados em tabelas para disponibilização e validação.
 
-**3. Automotive Views**
+- **2. Automotive Marts**
 
-Camada de consultas analíticas, com Views desenvolvidas em SQL para alimentar os indicadores do dashboard.
+  Camada destinada à organização dos dados para análises de negócio.
+
+- **3. Automotive Views**
+
+  Camada de consultas analíticas, com Views desenvolvidas em SQL para alimentar os indicadores do dashboard.
 
 ## 📊 Análises desenvolvidas
 
@@ -86,7 +116,13 @@ Principais indicadores:
 | Conversão geral | 12,39% |
 | Taxa de pagamento | 99,50% |
 
-*Indicadores referentes à execução analisada do projeto.*
+
+## 📊 Dashboard — Análise de Vendas Automotivas
+
+> Desenvolvimento de um dashboard interativo no Looker Studio, integrado às Views analíticas do BigQuery, para monitoramento do funil de vendas automotivas. A solução reúne indicadores de visitas, carrinhos, checkouts, finalizações e pagamentos, permitindo acompanhar as taxas de conversão, identificar pontos de abandono e visualizar o comportamento dos clientes ao longo da jornada de compra.
+
+![Dashboard de Análise de Vendas Automotivas](Docs/img/dashboard.jpeg)
+
 
 ## 📁 Estrutura do repositório
 
@@ -157,14 +193,19 @@ Novas funcionalidades e aprimoramentos serão documentados neste repositório.
 
 ## 👨‍💻 Autor
 
-**Wallace Almeida**
+<div align="center">
 
-Estudante de Tecnologia em Internet das Coisas e profissional de Tecnologia da Informação, com foco em Engenharia de Dados, Cloud Computing e Analytics.
+# Wallace Almeida
+
+### Data Engineer | Cloud Engineer Jr.
+
+Engenharia de Dados • Python • SQL • Databricks • GCP
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Perfil-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/wallace-almeida-amaral/)
+
+</div>
+
+Estudante de Tecnologia em Internet das Coisas e profissional de Tecnologia da Informação, com foco em Engenharia de Dados Cloud Computing.
 
 Projeto desenvolvido como parte da jornada de aprendizado em SQL para Análise de Dados e AI/R Fellowship | AI-Driven Data Engineering.
 
----
-
-**Transformando dados em informações para decisões melhores.** 🚀
-
-#DataEngineering #Python #SQL #PostgreSQL #BigQuery #GoogleCloud #Pandas #LookerStudio #DataAnalytics #ETL
