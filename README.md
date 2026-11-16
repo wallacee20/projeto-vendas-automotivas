@@ -16,6 +16,7 @@ Construir um fluxo de dados capaz de extrair informações de um banco de dados 
 
 O fluxo foi estruturado seguindo o processo ETL (Extract, Transform, Load).
 
+![Demonstração ETL](./Docs/img/giii.gif)
 **Fluxo de dados:**
 
 `PostgreSQL → Python/Pandas → BigQuery → Looker Studio`
