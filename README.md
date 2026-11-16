@@ -121,7 +121,7 @@ Principais indicadores:
 
 > Desenvolvimento de um dashboard interativo no Looker Studio, integrado às Views analíticas do BigQuery, para monitoramento do funil de vendas automotivas. A solução reúne indicadores de visitas, carrinhos, checkouts, finalizações e pagamentos, permitindo acompanhar as taxas de conversão, identificar pontos de abandono e visualizar o comportamento dos clientes ao longo da jornada de compra.
 
-![Dashboard de Análise de Vendas Automotivas](Docs/img/dashboard.jpeg)
+![Dashboard de Análise de Vendas Automotivas](Docs/img/dash.jpeg)
 
 
 ## 📁 Estrutura do repositório
